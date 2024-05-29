@@ -15,7 +15,7 @@ organization --> parametro che gli passo
 class OrganizationController extends Controller
 {
     /**
-     *  Stampo tutte le Organization
+     *  Stampo tutte le Organization (GET)
      */
     public function index()
     {
@@ -23,7 +23,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     *  Mostro l'organization relativa al parametro passato
+     *  Mostro l'organization relativa al parametro passato (GET)
      */
     public function show(Organization $organization)
     {
@@ -31,8 +31,8 @@ class OrganizationController extends Controller
     }
 
     /**
-     *  Aggiungo alla lista delle oragnizations una nuova organization
-     *  con il nome che gli viene passato e con il primo id disponibile
+     *  Aggiungo alla lista delle organizations una nuova organization
+     *  con il nome che gli viene passato e con il primo id disponibile (POST)
      */
     public function store(StoreOrganizationRequest $request)
     {
@@ -45,7 +45,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     * Modifico l'organization richiesta con il nuovo nome passato 
+     * Modifico l'organization richiesta con il nuovo nome passato (PUT)
      */
     public function update(UpdateOrganizationRequest $request, Organization $organization)
     {
@@ -55,7 +55,7 @@ class OrganizationController extends Controller
     }
 
     /**
-     *  Rimuovo dalla lista l'organization quella con id uguale al parametro passato
+     *  Rimuovo dalla lista l'organization quella con id uguale al parametro passato (DELETE)
      */
     public function destroy(Organization $organization)
     {

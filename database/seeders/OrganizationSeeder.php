@@ -11,11 +11,15 @@ class OrganizationSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
+        // Cancella tutti i record esistenti
+        Organization::truncate();
+
         Organization::create([
-            'id' => '1',
-            'name' => 'FantaSkn'
+            'name' => 'FantaSkn',
         ]);
+
+        // Altri record se necessario
     }
 }
