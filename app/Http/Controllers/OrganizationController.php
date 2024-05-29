@@ -13,7 +13,7 @@ class OrganizationController extends Controller
      */
     public function index()
     {
-        return ["id" => 1];
+        return Organization::all();
     }
 
     /**
@@ -21,7 +21,12 @@ class OrganizationController extends Controller
      */
     public function store(StoreOrganizationRequest $request)
     {
-        //
+
+        $organization = new Organization();
+        $organization->name = $request->name;
+        $organization->save();
+
+        return $organization;
     }
 
     /**
@@ -38,7 +43,6 @@ class OrganizationController extends Controller
      */
     public function update(UpdateOrganizationRequest $request, Organization $organization)
     {
-        //
     }
 
     /**
@@ -46,6 +50,8 @@ class OrganizationController extends Controller
      */
     public function destroy(Organization $organization)
     {
-        //
+        // you have to find the particular post from database to delete.
+        $organization->delete();
+        return "eliminato";
     }
 }

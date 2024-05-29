@@ -13,9 +13,25 @@ class OrganizationSeeder extends Seeder
      */
     public function run(): void
     {
-        Organization::create([
-            'id' => 1,
-            'name' => 'FantaSKN'
-        ]);
+        $organizations = [
+            [
+                'id' => 1,
+                'name' => 'FantaSKN1'
+            ],
+            [
+                'id' => 2,
+                'name' => 'FantaSKN2'
+            ],
+            [
+                'id' => 3,
+                'name' => 'FantaSKN3'
+            ],
+        ];
+        
+        foreach ($organizations as $organization) {
+            Organization::create($organization);
+        }
+        
+       
     }
 }
