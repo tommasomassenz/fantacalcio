@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Organization;
+use App\Models\Player;
 use App\Models\Team;
 
 class TeamSeeder extends Seeder
@@ -32,6 +33,10 @@ class TeamSeeder extends Seeder
         ];
         foreach ($teams as $team) {
             Team::updateOrCreate($team);
+
+            Player::factory(20)->create(["team_id" => $team["id"]]);
         }
     }
 }
+
+#0
