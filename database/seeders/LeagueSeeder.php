@@ -2,20 +2,22 @@
 
 namespace Database\Seeders;
 
+use App\Models\League;
+use App\Models\Organization;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Organization;
 
-class OrganizationSeeder extends Seeder
+class LeagueSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Organization::updateOrCreate([
+        League::updateOrCreate([
             'id' => '1',
-            'name' => 'FantaSkn'
+            'organization_id' => Organization::first()->id,
+            'name' => 'Campionato'
         ]);
     }
 }

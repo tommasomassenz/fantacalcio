@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('photos', function (Blueprint $table) {
+        Schema::create('leagues', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('organization_id')->constrained('organizations');
+            $table->string('name', 50);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('photos');
+        Schema::dropIfExists('leagues');
     }
 };
