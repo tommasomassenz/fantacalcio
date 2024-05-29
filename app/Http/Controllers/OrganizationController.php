@@ -6,10 +6,16 @@ use App\Http\Requests\StoreOrganizationRequest;
 use App\Http\Requests\UpdateOrganizationRequest;
 use App\Models\Organization;
 
+
+/* 
+request--> dati che riceve
+organization --> parametro che gli passo
+*/
+
 class OrganizationController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     *  Stampo tutte le Organization
      */
     public function index()
     {
@@ -17,7 +23,16 @@ class OrganizationController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     *  Mostro l'organization relativa al parametro passato
+     */
+    public function show(Organization $organization)
+    {
+        return $organization;
+    }
+
+    /**
+     *  Aggiungo alla lista delle oragnizations una nuova organization
+     *  con il nome che gli viene passato e con il primo id disponibile
      */
     public function store(StoreOrganizationRequest $request)
     {
@@ -30,28 +45,21 @@ class OrganizationController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Organization $organization)
-    {
-        return $organization;
-    }
-
-
-    /**
-     * Update the specified resource in storage.
+     * Modifico l'organization richiesta con il nuovo nome passato 
      */
     public function update(UpdateOrganizationRequest $request, Organization $organization)
     {
+        $organization->name = $request->name;
+        $organization->save();
+        return $organization->name;
     }
 
     /**
-     * Remove the specified resource from storage.
+     *  Rimuovo dalla lista l'organization quella con id uguale al parametro passato
      */
     public function destroy(Organization $organization)
     {
-        // you have to find the particular post from database to delete.
         $organization->delete();
-        return "eliminato";
+        return $organization;
     }
 }
