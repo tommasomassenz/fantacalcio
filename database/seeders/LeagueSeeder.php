@@ -17,13 +17,16 @@ class LeagueSeeder extends Seeder
         // Cancella tutti i record esistenti
         League::truncate();
 
-        // Recupera l'ID della prima organizzazione
-        $organizationId = Organization::first()->id;
-
-        // Crea una nuova lega con l'ID dell'organizzazione
+        // Creare la prima lega
         League::create([
-            'organizationId' => $organizationId,
+            'organizationName' => 'FantaSkn',
             'name' => 'Campionato'
+        ]);
+
+        // Creare la seconda lega
+        League::create([
+            'organizationName' => 'FantaSkn',
+            'name' => 'Champions League'
         ]);
     }
 }

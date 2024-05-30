@@ -38,6 +38,7 @@ class LeagueController extends Controller
     {
 
         $league = new League();
+        $league->organizationName = "FantaSkn";
         $league->name = $request->name;
         $league->save();
 
@@ -45,7 +46,7 @@ class LeagueController extends Controller
     }
 
     /**
-     * Modifico l'League richiesta con il nuovo nome passato (PUT)
+     * Modifico la League richiesta con il nuovo nome passato (PUT)
      */
     public function update(UpdateLeagueRequest $request, League $league)
     {
